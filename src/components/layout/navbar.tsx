@@ -104,14 +104,14 @@ const Navbar = () => {
         </div>
 
         {/* User */}
-        <Button size="icon">
+        <Button size="icon" variant="ghost">
           <UserIcon className="text-black stroke-2" />
         </Button>
 
         {/* Cart */}
         <Sheet>
           <SheetTrigger asChild>
-            <Button className="text-black">
+            <Button className="text-black" variant="ghost">
               <ShoppingBagIcon className="stroke-2" />
               {/* items in cart */}
               <span className="hover:underline underline-offset-2">({cartCount})</span>

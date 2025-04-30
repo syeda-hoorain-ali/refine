@@ -1,6 +1,6 @@
 "use client";
 
-import { IProductDetails } from "@/types";
+import { IProductDetails } from "@/types/product";
 import { useShoppingCart } from "use-shopping-cart";
 
 const AddToCartButton = ({ product }: { product: IProductDetails }) => {
@@ -16,7 +16,7 @@ const AddToCartButton = ({ product }: { product: IProductDetails }) => {
   }
   return (
     <button
-      className="w-full mx-4 py-2 bg-orange-400 border border-black z-10 cursor-pointer"
+      className="w-full mx-4 py-2 bg-primary border border-black z-10 cursor-pointer"
       onClick={() => addItem(cartProduct)}
     >
       Add to cart

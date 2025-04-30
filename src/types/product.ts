@@ -15,4 +15,3 @@ export interface IProductDetails {
     color: string[];
     images: string[]; // Array of image URLs
 }
-  
