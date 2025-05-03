@@ -1,7 +1,7 @@
 import { jost } from "@/app/fonts"
 import { ProductCard } from "@/components/cards"
 import { client } from "@/sanity/lib/client"
-import { IProduct } from "@/types/types"
+import { IProduct } from "@/types/product"
 import {
   Carousel,
   CarouselContent,

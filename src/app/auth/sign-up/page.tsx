@@ -1,5 +1,6 @@
-import LoginForm from "@/components/forms/login"
+import SignUpForm from "@/components/forms/sign-up"
 import { GoogleIcon } from "@/components/icons"
+import AWSProvider from "@/components/layout/cart-provider"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
@@ -11,16 +12,18 @@ const page = () => {
 
         <Card className="w-full mx-4 my-8 max-w-96 shadow-xl">
           <CardHeader className="text-center">
-            <CardTitle className="text-4xl font-bold">Login</CardTitle>
-            <CardDescription>Enter your email below to login to your account</CardDescription>
+            <CardTitle className="text-4xl font-bold">Sign up</CardTitle>
+            <CardDescription>Sign up to start shopping</CardDescription>
           </CardHeader>
 
           <CardContent>
-            <LoginForm />
+            <AWSProvider>
+              <SignUpForm />
+            </AWSProvider>
 
             <p className="my-2 text-center text-sm text-gray-800">
-              Don&apos;t have an account?  {' '}
-              <Link href="/sign-up" className="text-blue-600 hover:text-blue-800">Sign up</Link>
+              Already have an account? {' '}
+              <Link href="/login" className="text-blue-600 hover:text-blue-800">Log in</Link>
             </p>
 
 
@@ -31,7 +34,7 @@ const page = () => {
 
             <Button variant="outline" className="w-full">
               <GoogleIcon className="size-5" />
-              Login with Google
+              Sign up with Google
             </Button>
           </CardContent>
         </Card>

@@ -1,4 +1,4 @@
-import { Instrument_Sans, Jost } from "next/font/google";
+import { Fraunces, Instrument_Sans, Inter, Jost } from "next/font/google";
 
 export const instrumentSans = Instrument_Sans({
     variable: "--font-instrument-sans",
@@ -10,3 +10,12 @@ export const jost = Jost({
     subsets: ["latin"],
 });
 
+export const inter = Inter({
+    variable: "--font-inter",
+    subsets: ["latin"],
+});
+
+export const fraunces = Fraunces({
+    variable: "--font-fraunces",
+    subsets: ["latin"],
+});

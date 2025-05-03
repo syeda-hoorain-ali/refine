@@ -32,7 +32,7 @@ const page = () => {
       </Marquee>
     </div>
 
-    <ProductsSection />
+    {/* <ProductsSection /> */}
 
 
   </>)

@@ -1,3 +1,5 @@
+"use client"
+
 import Autoplay from "embla-carousel-autoplay"
 import {
   Carousel,
@@ -8,18 +10,24 @@ import {
 } from "@/components/ui/carousel"
 import Image from "next/image"
 import { Button } from "../ui/button"
+import { fraunces } from "@/app/fonts"
+import { useRef } from "react"
 
 
 const HeroSection = () => {
+
+  const autoplay = useRef(
+    Autoplay(
+      { delay: 5000, stopOnInteraction: true }
+    )
+  )
+
+
   return (
-    <header>
+    <header id="hero" className="mb-96">
 
       <Carousel
-        plugins={[
-          // Autoplay({
-          //   delay: 2000,
-          // }),
-        ]}
+        plugins={[autoplay.current]}
         opts={{
           loop: true,
         }}
@@ -27,46 +35,42 @@ const HeroSection = () => {
         <CarouselContent className="h-screen w-screen">
 
           <CarouselItem className="relative">
-            <Image src="/bg-hero-1.png" alt="Image 1" fill />
+            <Image src="/home-slide-1.jpg" alt="Image 1" fill />
 
-            <div className="absolute top-0 left-0 flex items-center justify-center bg-primary/20 w-full h-full pointer-events-none">
-              <div className="flex flex-col items-center text-center max-w-2xl gap-4 text-white">
-                <h3 className="text-6xl font-black uppercase pointer-events-none">Elevate your performance.</h3>
-                <p className="max-w-96 pointer-events-none">Discover performane-driven activewear designed to empower ever step.</p>
-                <Button className="w-44 h-12 bg-primary rounded-none">Shop activewears</Button>
+            <div className="absolute top-0 left-0 m-3 p-14 flex items-center w-full h-full pointer-events-none">
+
+              <div className="w-[550px] flex flex-col gap-5 text-white">
+                <h3 className={`text-5xl font-normal pointer-events-none ${fraunces.className}`}>
+                  Discover timeless elegance in modern leather handbags
+                </h3>
+                <p className="text-lg pointer-events-none mb-7 mr-20">
+                  Choose from a wide range of well crafted premium quality handbag online
+                </p>
+                <Button className="w-44 h-12 bg-primary rounded-none text-black">Explore all bags</Button>
               </div>
             </div>
           </CarouselItem>
 
 
           <CarouselItem className="relative">
-            <Image src="/bg-hero-1.png" alt="Image 1" fill />
+            <Image src="/home-slide-2.jpg" alt="Image 2" fill />
 
-            <div className="absolute top-0 left-0 flex items-center justify-center bg-primary/20 w-full h-full pointer-events-none">
-              <div className="flex flex-col items-center text-center max-w-2xl gap-4 text-white">
-                <h3 className="text-6xl font-black uppercase pointer-events-none">Elevate your performance.</h3>
-                <p className="max-w-96 pointer-events-none">Discover performane-driven activewear designed to empower ever step.</p>
-                <Button className="w-44 h-12 bg-pink-400 rounded-none">Shop activewears</Button>
+            <div className="absolute top-0 left-0 m-3 p-14 flex items-center w-full h-full pointer-events-none">
+
+              <div className="w-[550px] flex flex-col gap-5 text-white">
+                <h3 className={`text-5xl font-normal pointer-events-none ${fraunces.className}`}>
+                Upgrade your wardrobe with modern leather essentials
+                </h3>
+                <p className="text-lg pointer-events-none mb-7 mr-20">
+                Choose from a wide range of well crafted premium quality handbag online
+                </p>
+                <Button className="w-44 h-12 bg-primary rounded-none text-black">Explore all bags</Button>
               </div>
             </div>
           </CarouselItem>
-
-
-          <CarouselItem className="relative">
-            <Image src="/bg-hero-1.png" alt="Image 1" fill />
-
-            <div className="absolute top-0 left-0 flex items-center justify-center bg-primary/20 w-full h-full pointer-events-none">
-              <div className="flex flex-col items-center text-center max-w-2xl gap-4 text-white">
-                <h3 className="text-6xl font-black uppercase pointer-events-none">Elevate your performance.</h3>
-                <p className="max-w-96 pointer-events-none">Discover performane-driven activewear designed to empower ever step.</p>
-                <Button className="w-44 h-12 bg-blue-400 rounded-none">Shop activewears</Button>
-              </div>
-            </div>
-          </CarouselItem>
-
         </CarouselContent>
 
-        <CarouselPrevious />
+        <CarouselPrevious variant="link" className="absolute bg-transparent top-1/2 left-4 p-0 [&_svg]:size-8" />
         <CarouselNext />
       </Carousel>
 

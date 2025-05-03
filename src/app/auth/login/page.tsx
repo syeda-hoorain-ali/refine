@@ -1,4 +1,4 @@
-import SignUpForm from "@/components/forms/sign-up"
+import LoginForm from "@/components/forms/login"
 import { GoogleIcon } from "@/components/icons"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -11,28 +11,28 @@ const page = () => {
 
         <Card className="w-full mx-4 my-8 max-w-96 shadow-xl">
           <CardHeader className="text-center">
-            <CardTitle className="text-4xl font-bold">Sign up</CardTitle>
-            <CardDescription>Sign up to start shopping</CardDescription>
+            <CardTitle className="text-4xl font-bold">Welcome back!</CardTitle>
+            <CardDescription>Enter your email below to login to your account</CardDescription>
           </CardHeader>
 
           <CardContent>
-            <SignUpForm />
+            <LoginForm />
 
             <p className="my-2 text-center text-sm text-gray-800">
-              Already have an account? {' '}
-              <Link href="/login" className="text-blue-600 hover:text-blue-800">Log in</Link>
+              Don&apos;t have an account?  {' '}
+              <Link href="/sign-up" className="text-blue-600 hover:text-blue-800">Sign up</Link>
             </p>
 
 
-            <div className="relative w-full h-px my-6 bg-gray-300 text-gray-500">
+            {/* <div className="relative w-full h-px my-6 bg-gray-300 text-gray-500">
               <span className="absolute bg-background px-1 top-1/2 left-1/2 -translate-1/2 text-sm">or</span>
             </div>
 
 
             <Button variant="outline" className="w-full">
               <GoogleIcon className="size-5" />
-              Sign up with Google
-            </Button>
+              Login with Google
+            </Button> */}
           </CardContent>
         </Card>
 

@@ -3,7 +3,7 @@
 import { jost } from "@/app/fonts"
 import Image from "next/image"
 import { client } from "@/sanity/lib/client"
-import { IProductDetails } from "@/types/types"
+import { IProductDetails } from "@/types/product"
 import AddToCartButton from "@/components/cart-button"
 import { useEffect, useState } from "react"
 import { notFound } from "next/navigation"
@@ -37,7 +37,6 @@ const Page = ({ params }: Props) => {
 
       const product: IProductDetails = await client.fetch(query)
 
-      console.log(product)
       setProduct(product)
       if (product) setImage(product.images[0])
       setIsLoading(false)
