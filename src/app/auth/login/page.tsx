@@ -1,6 +1,5 @@
 import LoginForm from "@/components/forms/login"
-import { GoogleIcon } from "@/components/icons"
-import { Button } from "@/components/ui/button"
+import { GoogleLoginButton } from "@/components/login-buttons"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
 
@@ -20,19 +19,16 @@ const page = () => {
 
             <p className="my-2 text-center text-sm text-gray-800">
               Don&apos;t have an account?  {' '}
-              <Link href="/sign-up" className="text-blue-600 hover:text-blue-800">Sign up</Link>
+              <Link href="/auth/sign-up" className="text-blue-600 hover:text-blue-800">Sign up</Link>
             </p>
 
 
-            {/* <div className="relative w-full h-px my-6 bg-gray-300 text-gray-500">
+            <div className="relative w-full h-px my-6 bg-gray-300 text-gray-500">
               <span className="absolute bg-background px-1 top-1/2 left-1/2 -translate-1/2 text-sm">or</span>
             </div>
 
 
-            <Button variant="outline" className="w-full">
-              <GoogleIcon className="size-5" />
-              Login with Google
-            </Button> */}
+            <GoogleLoginButton />
           </CardContent>
         </Card>
 

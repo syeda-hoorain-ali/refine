@@ -10,10 +10,10 @@ export async function POST(req: NextRequest) {
 
         const command = new ConfirmForgotPasswordCommand({
             ClientId: awsClientId,
-            Username: email.split('@')[0],
+            Username: email,
             ConfirmationCode: code,
             Password: newPassword,
-            // SecretHash: getSecretHash(email, awsClientId, awsClientSecret),
+            SecretHash: getSecretHash(email, awsClientId, awsClientSecret),
         })
 
         const response = await cognito.send(command)

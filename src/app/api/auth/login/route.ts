@@ -13,9 +13,9 @@ export async function POST(req: NextRequest) {
             AuthFlow: "USER_PASSWORD_AUTH",
             ClientId: awsClientId,
             AuthParameters: {
-                USERNAME: email.split('@')[0],
+                USERNAME: email,
                 PASSWORD: password,
-                // SECRET_HASH: getSecretHash(email, awsClientId, awsClientSecret)
+                SECRET_HASH: getSecretHash(email, awsClientId, awsClientSecret)
             },
         })
         const response = await cognito.send(command)

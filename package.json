@@ -9,9 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-amplify/core": "^6.11.4",
     "@aws-amplify/ui-react": "^6.11.1",
+    "@aws-sdk/client-cognito-identity": "^3.803.0",
     "@aws-sdk/client-cognito-identity-provider": "^3.799.0",
-    "@clerk/nextjs": "^6.18.2",
     "@hookform/resolvers": "^5.0.1",
     "@radix-ui/react-alert-dialog": "^1.1.11",
     "@radix-ui/react-avatar": "^1.1.7",
@@ -23,6 +24,7 @@
     "@radix-ui/react-tabs": "^1.1.9",
     "@radix-ui/react-toggle": "^1.1.6",
     "@radix-ui/react-toggle-group": "^1.1.7",
+    "@react-oauth/google": "^0.12.1",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.86.1",
     "@stripe/stripe-js": "^7.2.0",
@@ -38,7 +40,6 @@
     "jsonwebtoken": "^9.0.2",
     "jwt-decode": "^4.0.0",
     "lucide-react": "^0.503.0",
-    "mongoose": "^8.14.1",
     "motion": "11.15",
     "next": "15.3.1",
     "next-auth": "^4.24.11",

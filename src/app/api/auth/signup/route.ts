@@ -10,10 +10,10 @@ export async function POST(req: NextRequest) {
     try {
         const command = new SignUpCommand({
             ClientId: awsClientId, // Cognito App Client ID
-            Username: email.split('@')[0], // Use a unique identifier instead of email
+            Username: email, // Use a unique identifier instead of email
             Password: password,
             
-            // SecretHash: getSecretHash(email, awsClientId, awsClientSecret),
+            SecretHash: getSecretHash(email, awsClientId, awsClientSecret),
             UserAttributes: [
                 {
                     Name: "email",

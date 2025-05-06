@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
     try {
         const command = new ConfirmSignUpCommand({
             ClientId: awsClientId,
-            Username: email.split('@')[0],
+            Username: email,
             ConfirmationCode: code,
             // SecretHash: getSecretHash(email, awsClientId, awsClientSecret),
         })
@@ -22,9 +22,9 @@ export async function POST(req: NextRequest) {
             AuthFlow: "USER_PASSWORD_AUTH",
             ClientId: awsClientId,
             AuthParameters: {
-                USERNAME: email.split('@')[0],
+                USERNAME: email,
                 PASSWORD: password,
-                // SECRET_HASH: getSecretHash(email, awsClientId, awsClientSecret)
+                SECRET_HASH: getSecretHash(email, awsClientId, awsClientSecret)
             },
         })
 

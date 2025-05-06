@@ -9,8 +9,8 @@ export async function POST(req: NextRequest) {
     try {
         const command = new ResendConfirmationCodeCommand({
             ClientId: awsClientId,
-            Username: email.split('@')[0],
-            // SecretHash: getSecretHash(email, awsClientId, awsClientSecret),
+            Username: email,
+            SecretHash: getSecretHash(email, awsClientId, awsClientSecret),
         })
         
         const response = await cognito.send(command)

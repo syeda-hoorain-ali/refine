@@ -10,7 +10,6 @@ const AuthButtons = () => {
 
   const { loading, user, setUser } = useUser()
   const router = useRouter()
-  console.log(user)
 
   const logout = async () => {
     await fetch("/api/auth/logout", { method: "POST" })

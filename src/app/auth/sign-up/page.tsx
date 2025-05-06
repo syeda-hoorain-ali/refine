@@ -23,11 +23,11 @@ const page = () => {
 
             <p className="my-2 text-center text-sm text-gray-800">
               Already have an account? {' '}
-              <Link href="/login" className="text-blue-600 hover:text-blue-800">Log in</Link>
+              <Link href="/auth/login" className="text-blue-600 hover:text-blue-800">Log in</Link>
             </p>
 
 
-            <div className="relative w-full h-px my-6 bg-gray-300 text-gray-500">
+            {/* <div className="relative w-full h-px my-6 bg-gray-300 text-gray-500">
               <span className="absolute bg-background px-1 top-1/2 left-1/2 -translate-1/2 text-sm">or</span>
             </div>
 
@@ -35,7 +35,7 @@ const page = () => {
             <Button variant="outline" className="w-full">
               <GoogleIcon className="size-5" />
               Sign up with Google
-            </Button>
+            </Button> */}
           </CardContent>
         </Card>
 
