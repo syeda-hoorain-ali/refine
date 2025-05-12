@@ -1,7 +1,8 @@
 import { SignUpCommand } from "@aws-sdk/client-cognito-identity-provider"
 import { cognito, getSecretHash } from "@/lib/cognito"
 import { NextRequest, NextResponse } from "next/server"
-import { awsClientId, awsClientSecret } from "@/env"
+import { awsClientSecret } from "@/env"
+import { awsClientId} from "@/public-env"
 
 
 export async function POST(req: NextRequest) {
@@ -18,6 +19,10 @@ export async function POST(req: NextRequest) {
                 {
                     Name: "email",
                     Value: email,
+                },
+                {
+                    Name: "name",
+                    Value: email.split('@')[0],
                 },
             ],
         })

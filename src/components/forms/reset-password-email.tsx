@@ -23,7 +23,7 @@ import {
 } from "@/components/ui/alert-dialog"
 
 
-const ResetPasswordEmailForm = () => {
+const ResetPasswordEmailForm = ({ buttonClassName }: { buttonClassName?: string }) => {
   type FormType = z.infer<typeof emailSchema>
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [dialogOpen, setDialogOpen] = useState(false)
@@ -45,7 +45,7 @@ const ResetPasswordEmailForm = () => {
       const err = error as AxiosError<ForgotPasswordAPIResponse>
       const message = err.response?.data.error || err.message
       toast.error(message)
-    
+
     } finally {
       setIsSubmitting(false)
     }
@@ -67,7 +67,7 @@ const ResetPasswordEmailForm = () => {
             )}
           />
 
-          <Button type="submit" className="w-full" disabled={isSubmitting}>
+          <Button type="submit" className={`w-full ${buttonClassName}`} disabled={isSubmitting}>
             {isSubmitting ? (
               <><Loader2Icon className="animate-spin" /> Sending</>
             ) : "Send Reset Code"}
@@ -93,4 +93,3 @@ const ResetPasswordEmailForm = () => {
 }
 
 export default ResetPasswordEmailForm
-2

@@ -1,7 +1,7 @@
 "use client"
 
 import { jost } from "@/app/fonts"
-import { IProduct } from "@/types/types"
+import { IProduct } from "@/types/product"
 import Image from "next/image"
 import Link from "next/link"
 import { useShoppingCart } from "use-shopping-cart"

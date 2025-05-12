@@ -1,8 +1,9 @@
 import { cookies } from "next/headers"
-import { awsClientId, awsClientSecret } from "@/env"
+import { awsClientSecret } from "@/env"
 import { cognito, getSecretHash } from "@/lib/cognito"
 import { ConfirmSignUpCommand, InitiateAuthCommand } from "@aws-sdk/client-cognito-identity-provider"
 import { NextRequest, NextResponse } from "next/server"
+import { awsClientId } from "@/public-env"
 
 export async function POST(req: NextRequest) {
     const { email, password, code } = await req.json()
@@ -12,7 +13,7 @@ export async function POST(req: NextRequest) {
             ClientId: awsClientId,
             Username: email,
             ConfirmationCode: code,
-            // SecretHash: getSecretHash(email, awsClientId, awsClientSecret),
+            SecretHash: getSecretHash(email, awsClientId, awsClientSecret),
         })
         await cognito.send(command)
 

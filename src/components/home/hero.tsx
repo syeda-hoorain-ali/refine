@@ -12,6 +12,7 @@ import Image from "next/image"
 import { Button } from "../ui/button"
 import { fraunces } from "@/app/fonts"
 import { useRef } from "react"
+import { TextAnimate } from "@/components/magicui/text-animate"
 
 
 const HeroSection = () => {
@@ -40,12 +41,21 @@ const HeroSection = () => {
             <div className="absolute top-0 left-0 m-3 p-14 flex items-center w-full h-full pointer-events-none">
 
               <div className="w-[550px] flex flex-col gap-5 text-white">
-                <h3 className={`text-5xl font-normal pointer-events-none ${fraunces.className}`}>
+                <TextAnimate
+                  as="h3"
+                  by="line"
+                  delay={0.5}
+                  duration={1}
+                  animation="slideUp"
+                  className={`text-5xl font-normal pointer-events-none ${fraunces.className}`}>
                   Discover timeless elegance in modern leather handbags
-                </h3>
-                <p className="text-lg pointer-events-none mb-7 mr-20">
+                </TextAnimate>
+
+
+                <TextAnimate by="line" duration={1} delay={0.5} animation="slideUp" className="text-lg pointer-events-none mb-7 mr-20">
                   Choose from a wide range of well crafted premium quality handbag online
-                </p>
+                </TextAnimate>
+
                 <Button className="w-44 h-12 bg-primary rounded-none text-black">Explore all bags</Button>
               </div>
             </div>
@@ -58,12 +68,20 @@ const HeroSection = () => {
             <div className="absolute top-0 left-0 m-3 p-14 flex items-center w-full h-full pointer-events-none">
 
               <div className="w-[550px] flex flex-col gap-5 text-white">
-                <h3 className={`text-5xl font-normal pointer-events-none ${fraunces.className}`}>
-                Upgrade your wardrobe with modern leather essentials
-                </h3>
-                <p className="text-lg pointer-events-none mb-7 mr-20">
-                Choose from a wide range of well crafted premium quality handbag online
-                </p>
+                <TextAnimate
+                  as="h3"
+                  by="line"
+                  delay={0.5}
+                  duration={1}
+                  animation="slideUp"
+                  className={`text-5xl font-normal pointer-events-none ${fraunces.className}`}>
+                  Upgrade your wardrobe with modern leather essentials
+                </TextAnimate>
+
+                <TextAnimate by="line" duration={1} delay={0.5} animation="slideUp" className="text-lg pointer-events-none mb-7 mr-20">
+                  Choose from a wide range of well crafted premium quality handbag online
+                </TextAnimate>
+
                 <Button className="w-44 h-12 bg-primary rounded-none text-black">Explore all bags</Button>
               </div>
             </div>

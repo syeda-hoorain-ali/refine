@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from "next/server"
 
 const AUTH_PATHS = ["/auth/login", "/auth/sign-up", "/auth/verify"]
-const PROTECTED_PATHS = ["/dashboard", "/auth/logout"]
+const PROTECTED_PATHS = ["/dashboard"]
 
 export function middleware(request: NextRequest) {
     const token = request.cookies.get("idToken")?.value || null
+    console.log(token ? "Middleware token" : "null")
     const pathname = request.nextUrl.pathname
 
     const isAuthPage = AUTH_PATHS.some(path => pathname.startsWith(path))
@@ -18,8 +19,7 @@ export function middleware(request: NextRequest) {
 
     // User is NOT authenticated
     if (isProtectedPage && !token) {
-        const loginUrl = new URL("/login", request.url)
-        return NextResponse.redirect(loginUrl)
+        return NextResponse.redirect( new URL("/auth/login", request.url))
     }
 
     return NextResponse.next()
@@ -27,5 +27,5 @@ export function middleware(request: NextRequest) {
 
 
 export const config = {
-    matcher: ["/auth/login", "/auth/sign-up", "/auth/verify", "/dashboard", "/auth/logout"],
+    matcher: ["/auth/login", "/auth/sign-up", "/auth/verify", "/dashboard"],
 }

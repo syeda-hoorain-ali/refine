@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server"
 import { ForgotPasswordCommand } from "@aws-sdk/client-cognito-identity-provider"
 import { cognito, getSecretHash } from "@/lib/cognito"
-import { awsClientId, awsClientSecret } from "@/env"
+import { awsClientSecret } from "@/env"
+import { awsClientId } from "@/public-env"
 
 export async function POST(req: NextRequest) {
     try {

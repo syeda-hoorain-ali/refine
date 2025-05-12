@@ -1,5 +1,6 @@
-import { awsClientId, awsClientSecret } from "@/env"
+import { awsClientSecret } from "@/env"
 import { cognito, getSecretHash } from "@/lib/cognito"
+import { awsClientId } from "@/public-env"
 import { ResendConfirmationCodeCommand } from "@aws-sdk/client-cognito-identity-provider"
 import { NextRequest, NextResponse } from "next/server"
 

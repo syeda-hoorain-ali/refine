@@ -4,7 +4,21 @@ import { NextRequest, NextResponse } from 'next/server'
 
 
 export async function GET(req: NextRequest) {
-    const code = req.nextUrl.searchParams.get('code')
+
+    console.log(req)
+    const searchParams = req.nextUrl.searchParams;
+    
+    const error = searchParams.get('error')
+    const error_description = searchParams.get('error_description')
+    console.log(error, error_description)
+
+    if (error) {
+        return NextResponse.json({ error, error_description }, { status: 400 })
+    }
+
+
+    const code = searchParams.get('code')
+    console.log(code)
 
     if (!code) {
         return NextResponse.json({ error: 'Code not found in query' }, { status: 400 })
@@ -14,7 +28,7 @@ export async function GET(req: NextRequest) {
         grant_type: 'authorization_code',
         client_id: awsClientId,
         code,
-        redirect_uri: `${baseURL}/api/auth/callback/google`, // must match Cognito App Client settings
+        redirect_uri: `${baseURL}/api/auth/callback/microsoft`, // must match Cognito App Client settings
     })
 
     const response = await fetch(`${awsCognitoBaseUrl}/oauth2/token`, {
@@ -29,17 +43,34 @@ export async function GET(req: NextRequest) {
     })
 
     const data = await response.json()
+    console.log(data)
 
     if (!response.ok) {
         console.error(data)
         return NextResponse.json({ error: 'Token exchange failed' }, { status: 500 })
     }
 
-    const { id_token } = data
+    console.log(data)
+    const { id_token, access_token, refresh_token } = data
+    console.log(refresh_token)
 
     // Store token in cookie (HttpOnly)
     const res = NextResponse.redirect(baseURL) // or any protected page
     res.cookies.set('idToken', id_token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        maxAge: 60 * 60 * 24,
+        path: '/',
+    })
+
+    res.cookies.set('accessToken', access_token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        maxAge: 60 * 60 * 24,
+        path: '/',
+    })
+
+    res.cookies.set('refreshToken', refresh_token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         maxAge: 60 * 60 * 24,

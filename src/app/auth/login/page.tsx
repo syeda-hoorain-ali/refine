@@ -1,5 +1,5 @@
 import LoginForm from "@/components/forms/login"
-import { GoogleLoginButton } from "@/components/login-buttons"
+import { GitHubLoginButton, GoogleLoginButton, MicrosoftLoginButton, TwitterLoginButton } from "@/components/login-buttons"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
 
@@ -28,7 +28,12 @@ const page = () => {
             </div>
 
 
-            <GoogleLoginButton />
+            <div className="grid grid-cols-2 grid-rows-2 gap-2">
+              <GoogleLoginButton />
+              <MicrosoftLoginButton />
+              <TwitterLoginButton />
+              <GitHubLoginButton />
+            </div>
           </CardContent>
         </Card>
 

@@ -1,11 +1,13 @@
 "use client"
 
 import { getUserFromToken } from "@/lib/getUserFromToken"
-import { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from "react"
+import { createContext, Dispatch, PropsWithChildren, SetStateAction, useContext, useEffect, useState } from "react"
 
 type User = {
   email: string
   sub: string
+  name: string;
+  picture: string;
   [key: string]: any
 }
 
@@ -31,8 +33,10 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState(true)
 
   const fetchUser = async () => {
+    setLoading(true)
     const userData = await getUserFromToken()
     setUser(userData)
+    // console.log("user data", userData)
     setLoading(false)
   }
 

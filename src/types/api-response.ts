@@ -4,44 +4,42 @@ import {
     ForgotPasswordCommandOutput,
     InitiateAuthCommandOutput,
     ResendConfirmationCodeCommandOutput,
-    SignUpCommandOutput
+    SignUpCommandOutput,
+    UpdateUserAttributesCommandOutput
 } from "@aws-sdk/client-cognito-identity-provider";
 
 
-export interface SignUpAPIResponse {
+interface APIResponse {
     message?: string;
+    error?: string;
+}
+
+export interface SignUpAPIResponse extends APIResponse {
     data?: SignUpCommandOutput;
-    error?: string;
 }
 
-export interface LoginAPIResponse {
-    message?: string;
+export interface LoginAPIResponse extends APIResponse {
     data?: InitiateAuthCommandOutput;
-    error?: string;
 }
 
-export interface VerifyCodeAPIResponse {
-    message?: string;
+export interface VerifyCodeAPIResponse extends APIResponse {
     // data?: ConfirmSignUpCommandOutput;
     data?: InitiateAuthCommandOutput;
-    error?: string;
 }
 
-export interface ResendCodeAPIResponse {
-    message?: string;
+export interface ResendCodeAPIResponse extends APIResponse {
     data?: ResendConfirmationCodeCommandOutput;
-    error?: string;
 }
 
-export interface ForgotPasswordAPIResponse {
-    message?: string;
+export interface ForgotPasswordAPIResponse extends APIResponse {
     data?: ForgotPasswordCommandOutput;
-    error?: string;
 }
 
-export interface ResetPasswordAPIResponse {
-    message?: string;
+export interface ResetPasswordAPIResponse extends APIResponse {
     data?: ConfirmForgotPasswordCommandOutput;
-    error?: string;
+}
+
+export interface UpdateProfileAPIResponse extends APIResponse {
+    data?: UpdateUserAttributesCommandOutput;
 }
 
