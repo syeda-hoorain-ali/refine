@@ -6,8 +6,6 @@ import Address from "@/components/user-dashboard/address"
 import CardDetails from "@/components/user-dashboard/card-details"
 import Orders from "@/components/user-dashboard/orders"
 import Profile from "@/components/user-dashboard/profile"
-import { msalInstance } from "@/lib/msal"
-import { MsalProvider } from "@azure/msal-react";
 
 
 //* Tabs:

@@ -1,5 +1,6 @@
 import VerificationCodeForm from "@/components/forms/verification-code-form"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Suspense } from "react"
 
 const page = () => {
   return (
@@ -15,7 +16,9 @@ const page = () => {
           </CardHeader>
 
           <CardContent>
-            <VerificationCodeForm />
+            <Suspense>
+              <VerificationCodeForm />
+            </Suspense>
           </CardContent>
         </Card>
 

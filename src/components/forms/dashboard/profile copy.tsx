@@ -15,7 +15,7 @@ import { profileSchema } from "@/schema/user-dashboard/profileSchema"
 import { Separator } from "@/components/ui/separator"
 import { Label } from "@/components/ui/label"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { isGraphPhotoUrl } from "@/lib/utils"
+// import { isGraphPhotoUrl } from "@/lib/utils"
 import { getImageUrl, getToken } from "@/lib/msal"
 import { getAccessToken, getRefreshToken } from "@/lib/getUserFromToken"
 
@@ -39,7 +39,7 @@ const ProfileForm = () => {
       if (!user?.picture) return;
       setImageUrl(user.picture);
 
-      if (!isGraphPhotoUrl(user.picture)) return;
+      // if (!isGraphPhotoUrl(user.picture)) return;
 
       try {
 

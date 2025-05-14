@@ -28,11 +28,9 @@ const page = () => {
             </div>
 
 
-            <div className="grid grid-cols-2 grid-rows-2 gap-2">
+            <div className="flex flex-col gap-2">
               <GoogleLoginButton />
               <MicrosoftLoginButton />
-              <TwitterLoginButton />
-              <GitHubLoginButton />
             </div>
           </CardContent>
         </Card>

@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form"
 import { Loader2Icon } from "lucide-react"
 import { useEffect, useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useMsal, useAccount } from "@azure/msal-react";
 
 import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
@@ -13,13 +12,8 @@ import { Input } from "@/components/ui/input"
 import { useUser } from "@/context/UserContext"
 import { profileSchema } from "@/schema/user-dashboard/profileSchema"
 import { Separator } from "@/components/ui/separator"
-import { Label } from "@/components/ui/label"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { isGraphPhotoUrl } from "@/lib/utils"
-import { getAccessToken, getImageUrl, getToken } from "@/lib/msal"
-import { getIdToken, getRefreshToken } from "@/lib/getUserFromToken"
+// import { isGraphPhotoUrl } from "@/lib/utils"
 import axios, { AxiosError } from "axios"
-import ResetPasswordEmailForm from "../reset-password-email"
 import Link from "next/link"
 import AvatarUploader from "../avatar-uploader"
 import { UpdateProfileAPIResponse } from "@/types/api-response"
@@ -32,51 +26,48 @@ const ProfileForm = () => {
 
   const { user, fetchUser, loading } = useUser()
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [imageUrl, setImageUrl] = useState<string | null>(null)
+  // const [imageUrl, setImageUrl] = useState<string | null>(null)
 
-  const { instance } = useMsal();
+  // const { instance } = useMsal();
   console.log(user)
 
-  useEffect(() => {
-    const fetchImage = async () => {
-      if (!user?.picture) return;
-      setImageUrl(user.picture);
+  // useEffect(() => {
+    // const fetchImage = async () => {
+    //   if (!user?.picture) return;
+    //   setImageUrl(user.picture);
 
 
-      if (!isGraphPhotoUrl(user.picture)) return;
+    //   if (!isGraphPhotoUrl(user.picture)) return;
 
-      try {
-
-
-        // const refreshToken = await getIdToken()
-        // if (!refreshToken) {
-        //   console.log('refresh token not found')
-        //   return
-        // }
-        // console.log("refresh token")
-        // const token = await getAccessToken(refreshToken)
-        // // const token = await getAccessToken()
-
-        // const objectUrl = await getImageUrl(user.picture, token)
-        // setImageUrl(objectUrl);
-        // console.log(objectUrl)
+    //   try {
 
 
+    //     // const refreshToken = await getIdToken()
+    //     // if (!refreshToken) {
+    //     //   console.log('refresh token not found')
+    //     //   return
+    //     // }
+    //     // console.log("refresh token")
+    //     // const token = await getAccessToken(refreshToken)
+    //     // // const token = await getAccessToken()
+
+    //     // const objectUrl = await getImageUrl(user.picture, token)
+    //     // setImageUrl(objectUrl);
+    //     // console.log(objectUrl)
+
+    //     const a = await axios.get("/api/auth/graph")
+
+    //     console.log(a)
 
 
-        const a = await axios.get("/api/auth/graph")
-
-        console.log(a)
-
-
-      } catch (err) {
-        console.error(err);
-        setImageUrl(null);
-      }
-    };
+    //   } catch (err) {
+    //     console.error(err);
+    //     setImageUrl(null);
+    //   }
+    // };
 
     // fetchImage();
-  }, [instance, user]);
+  // }, [instance, user]);
 
 
   useEffect(() => {

@@ -4,20 +4,7 @@ import { NextRequest, NextResponse } from 'next/server'
 
 
 export async function GET(req: NextRequest) {
-    
-    console.log(req)
-    const searchParams = req.nextUrl.searchParams;
-    
-    const error = searchParams.get('error')
-    const error_description = searchParams.get('error_description')
-    console.log(error, error_description)
-
-    if (error) {
-        return NextResponse.json({ error, error_description }, { status: 400 })
-    }
-
     const code = req.nextUrl.searchParams.get('code')
-    console.log(code)
 
     if (!code) {
         return NextResponse.json({ error: 'Code not found in query' }, { status: 400 })
@@ -27,7 +14,7 @@ export async function GET(req: NextRequest) {
         grant_type: 'authorization_code',
         client_id: awsClientId,
         code,
-        redirect_uri: `${baseURL}/api/auth/callback/twitter`, // must match Cognito App Client settings
+        redirect_uri: `${baseURL}/api/auth/callback/cognito`, // must match Cognito App Client settings
     })
 
     const response = await fetch(`${awsCognitoBaseUrl}/oauth2/token`, {

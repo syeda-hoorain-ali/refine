@@ -55,7 +55,7 @@
     "react-toastify": "^11.0.5",
     "sanity": "^3.86.1",
     "styled-components": "^6.1.17",
-    "tailwind-merge": "^3.2.0",
+    "tailwind-merge": "^3.3.0",
     "use-shopping-cart": "^3.2.0",
     "zod": "^3.24.3"
   },
@@ -67,7 +67,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "tailwindcss": "^4",
-    "tw-animate-css": "^1.2.8",
+    "tw-animate-css": "^1.2.9",
     "typescript": "^5"
   }
 }
