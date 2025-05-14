@@ -6,8 +6,6 @@ import { inter } from "@/app/fonts";
 import { CartProvider } from "@/components/layout/cart-provider";
 import { Bounce, ToastContainer } from "react-toastify";
 import { UserProvider } from "@/context/UserContext";
-import { GoogleOAuthProvider } from '@react-oauth/google'
-import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Refine - E commerce",
@@ -24,7 +22,7 @@ export default function RootLayout({
       suppressHydrationWarning
       data-qb-installed="true">
       <body
-        className={`${inter.variable} antialiased overflow-x-hidden`}
+        className={`${inter.className} antialiased overflow-x-hidden`}
         cz-shortcut-listen="true"
       >
         <CartProvider>
@@ -41,22 +39,11 @@ export default function RootLayout({
             theme="colored"
             transition={Bounce}
           />
-
-
-          <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!}>
-
-            <UserProvider>
-
-              <Script
-                src="https://accounts.google.com/gsi/client"
-                strategy="beforeInteractive"
-              />
-
-              <Headline />
-              <Navbar />
-              {children}
-            </UserProvider>
-          </GoogleOAuthProvider>
+          <UserProvider>
+            <Headline />
+            <Navbar />
+            {children}
+          </UserProvider>
         </CartProvider>
       </body>
     </html>

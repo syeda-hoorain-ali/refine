@@ -25,13 +25,11 @@ const HeroSection = () => {
 
 
   return (
-    <header id="hero" className="mb-96">
+    <header id="hero">
 
       <Carousel
         plugins={[autoplay.current]}
-        opts={{
-          loop: true,
-        }}
+        opts={{ loop: true }}
       >
         <CarouselContent className="h-screen w-screen">
 
@@ -56,7 +54,7 @@ const HeroSection = () => {
                   Choose from a wide range of well crafted premium quality handbag online
                 </TextAnimate>
 
-                <Button className="w-44 h-12 bg-primary rounded-none text-black">Explore all bags</Button>
+                <Button className="w-44 h-12 bg-primary text-black">Explore all bags</Button>
               </div>
             </div>
           </CarouselItem>
@@ -82,7 +80,7 @@ const HeroSection = () => {
                   Choose from a wide range of well crafted premium quality handbag online
                 </TextAnimate>
 
-                <Button className="w-44 h-12 bg-primary rounded-none text-black">Explore all bags</Button>
+                <Button className="w-44 h-12 bg-primary text-black">Explore all bags</Button>
               </div>
             </div>
           </CarouselItem>

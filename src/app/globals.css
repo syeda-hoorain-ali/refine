@@ -4,6 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --color-peach: var(--peach);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -78,7 +79,8 @@
 
 :root {
   --radius: 0.5rem;
-  --background: oklch(1 0 0);
+  --peach: oklch(0.93 0.0211 72.14);
+  --background: oklch(0.98 0.0074 80.72);
   --foreground: oklch(0.141 0.005 285.823);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.141 0.005 285.823);
