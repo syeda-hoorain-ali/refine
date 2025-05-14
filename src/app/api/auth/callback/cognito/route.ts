@@ -4,6 +4,17 @@ import { NextRequest, NextResponse } from 'next/server'
 
 
 export async function GET(req: NextRequest) {
+
+    const searchParams = req.nextUrl.searchParams;
+
+    const error = searchParams.get('error')
+    const error_description = searchParams.get('error_description')
+    
+    if (error) {
+        return NextResponse.json({ error, error_description }, { status: 400 })
+    }
+
+
     const code = req.nextUrl.searchParams.get('code')
 
     if (!code) {
@@ -13,6 +24,7 @@ export async function GET(req: NextRequest) {
     const body = new URLSearchParams({
         grant_type: 'authorization_code',
         client_id: awsClientId,
+        client_secret: awsClientSecret,
         code,
         redirect_uri: `${baseURL}/api/auth/callback/cognito`, // must match Cognito App Client settings
     })
