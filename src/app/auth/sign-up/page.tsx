@@ -1,7 +1,4 @@
 import SignUpForm from "@/components/forms/sign-up"
-import { GoogleIcon } from "@/components/icons"
-import AWSProvider from "@/components/layout/cart-provider"
-import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
 
@@ -17,9 +14,7 @@ const page = () => {
           </CardHeader>
 
           <CardContent>
-            <AWSProvider>
-              <SignUpForm />
-            </AWSProvider>
+            <SignUpForm />
 
             <p className="my-2 text-center text-sm text-gray-800">
               Already have an account? {' '}

@@ -2,10 +2,8 @@
 
 import { PropsWithChildren, useEffect } from "react"
 import { CartProvider as USCProvider } from "use-shopping-cart"
-import { Authenticator } from "@aws-amplify/ui-react";
-import { Amplify } from "aws-amplify";
-import awsconfig from "@/awsconfig";
-import awsconfig2 from "@/awsconfig2";
+// import { Authenticator } from "@aws-amplify/ui-react";
+// import { Amplify } from "aws-amplify";
 
 export const CartProvider = ({ children }: PropsWithChildren) => {
   if (!process.env.NEXT_PUBLIC_STRIPE_KEY) {
@@ -31,15 +29,15 @@ export const CartProvider = ({ children }: PropsWithChildren) => {
 }
 
 
-const AWSProvider = ({ children }: PropsWithChildren) => {
+// const AWSProvider = ({ children }: PropsWithChildren) => {
 
-  useEffect(() => {
-    Amplify.configure(awsconfig2)
-  }, [])
+//   useEffect(() => {
+//     Amplify.configure(awsconfig2)
+//   }, [])
 
-  return (<Authenticator.Provider>
-    {children}
-  </Authenticator.Provider>)
-}
+//   return (<Authenticator.Provider>
+//     {children}
+//   </Authenticator.Provider>)
+// }
 
-export default AWSProvider
+// export default AWSProvider
