@@ -26,16 +26,16 @@ const ExploreSection = () => {
   return (
     <section className="bg-peach">
 
-      <div className="mx-12 p-4 h-72 flex items-center border-b bg-peach border-black">
-        <h4 className={`text-5xl font-normal ${fraunces.className}`}>
+      <div className="sm:mx-12 px-4 py-3 sm:py-4 h-96 sm:h-72 flex items-center border-b bg-peach border-black">
+        <h4 className={`text-4xl sm:text-5xl font-normal ${fraunces.className}`}>
           “Explore the art of elegance with our modern handbags. Timeless designs crafted for those who appreciate true sophistication.”
         </h4>
       </div>
 
-      <div className="mx-12 px-4 py-16 grid grid-cols-6">
+      <div className="sm:mx-12 px-4 py-16 grid grid-cols-6 gap-4">
 
         {cards.map((card, i) => (
-          <div className="col-span-2" key={i}>
+          <div className="col-span-6 sm:col-span-2" key={i}>
             <div className="image">
               <Image
                 alt={card.title}

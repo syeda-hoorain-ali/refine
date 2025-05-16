@@ -1,7 +1,4 @@
 import HeroSection from "@/components/home/hero"
-import { fraunces } from "./fonts"
-import { Marquee } from "@/components/magicui/marquee"
-import Image from "next/image";
 import ProductsSection from "@/components/home/products";
 import ExploreSection from "@/components/home/explore";
 import OurCollectionsSection from "@/components/home/our-collections";

@@ -19,7 +19,7 @@ const url = (provider: string, redirectUri?: string) => {
 
 export const GoogleLoginButton = () => {
 
-  const URL = url("Google")
+  const URL = url("Google", "http://localhost:3000/api/auth/callback/cognito")
 
   return (
     <Link href={URL}>
@@ -62,7 +62,7 @@ export const GitHubLoginButton = () => {
 export const MicrosoftLoginButton = () => {
 
   // `${baseURL}/api/auth/callback/microsoft`
-  const URL = url("MicrosoftIdpN")  // N microsoft client
+  const URL = url("MicrosoftIdpN", "http://localhost:3000/api/auth/callback/cognito")  // N microsoft client
   // const URL = url("MicrosoftIdp", "microsoft") // My microsoft client
 
   return (

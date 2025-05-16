@@ -34,7 +34,7 @@ const HeroSection = () => {
         <CarouselContent className="h-screen w-screen">
 
           <CarouselItem className="relative">
-            <Image src="/home-slide-1.jpg" alt="Image 1" fill />
+            <Image src="/home-slide-1.jpg" alt="Image 1" fill objectFit="cover" />
 
             <div className="absolute top-0 left-0 m-3 p-14 flex items-center w-full h-full pointer-events-none">
 
@@ -45,12 +45,17 @@ const HeroSection = () => {
                   delay={0.5}
                   duration={1}
                   animation="slideUp"
-                  className={`text-5xl font-normal pointer-events-none ${fraunces.className}`}>
+                  className={`text-4xl md:text-5xl font-normal pointer-events-none ${fraunces.className}`}>
                   Discover timeless elegance in modern leather handbags
                 </TextAnimate>
 
 
-                <TextAnimate by="line" duration={1} delay={0.5} animation="slideUp" className="text-lg pointer-events-none mb-7 mr-20">
+                <TextAnimate
+                  by="line"
+                  delay={0.5}
+                  duration={1}
+                  animation="slideUp"
+                  className="text-[1.0625rem] sm:text-lg pointer-events-none mb-7 mr-20">
                   Choose from a wide range of well crafted premium quality handbag online
                 </TextAnimate>
 
@@ -61,7 +66,7 @@ const HeroSection = () => {
 
 
           <CarouselItem className="relative">
-            <Image src="/home-slide-2.jpg" alt="Image 2" fill />
+            <Image src="/home-slide-2.jpg" alt="Image 2" fill objectFit="cover" />
 
             <div className="absolute top-0 left-0 m-3 p-14 flex items-center w-full h-full pointer-events-none">
 
@@ -72,11 +77,16 @@ const HeroSection = () => {
                   delay={0.5}
                   duration={1}
                   animation="slideUp"
-                  className={`text-5xl font-normal pointer-events-none ${fraunces.className}`}>
+                  className={`text-4xl sm:text-5xl font-normal pointer-events-none ${fraunces.className}`}>
                   Upgrade your wardrobe with modern leather essentials
                 </TextAnimate>
 
-                <TextAnimate by="line" duration={1} delay={0.5} animation="slideUp" className="text-lg pointer-events-none mb-7 mr-20">
+                <TextAnimate
+                  by="line"
+                  delay={0.5}
+                  duration={1}
+                  animation="slideUp"
+                  className="text-[1.0625rem] sm:text-lg pointer-events-none mb-7 mr-20">
                   Choose from a wide range of well crafted premium quality handbag online
                 </TextAnimate>
 

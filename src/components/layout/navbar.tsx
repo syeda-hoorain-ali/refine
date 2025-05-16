@@ -91,7 +91,7 @@ const Navbar = () => {
         <div className="flex items-center gap-1">
 
           {/* Search */}
-          <div className="flex items-center gap-2 px-1 border border-current rounded-full w-48 h-8">
+          <div className="hidden md:flex items-center gap-2 px-1 border border-current rounded-full w-48 h-8">
             <SearchIcon className="size-6 stroke-2 ml-1" />
             <Input placeholder="Start typing..." className="border-none placeholder:text-gray-400 p-0 focus-visible:ring-0" />
             <Button className="size-6 text-black rounded-full"> <ArrowRightIcon /> </Button>
@@ -106,7 +106,8 @@ const Navbar = () => {
               <Button className="text-current" variant="ghost">
                 <ShoppingBagIcon className="stroke-2" />
                 {/* items in cart */}
-                <span className="hover:underline underline-offset-2">Bag({cartCount})</span>
+                <span className="hidden sm:inline hover:underline underline-offset-2">({cartCount})</span>
+                <span className="sm:hidden hover:underline underline-offset-2">Bag({cartCount})</span>
               </Button>
             </SheetTrigger>
             <SheetContent className="w-7xl">

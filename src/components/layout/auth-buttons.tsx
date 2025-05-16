@@ -20,7 +20,7 @@ const AuthButtons = () => {
   if (loading) return null;
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="hidden sm:flex items-center gap-2">
       {user ? (
         <>
           <Link href="/dashboard">
