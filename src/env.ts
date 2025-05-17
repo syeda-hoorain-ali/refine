@@ -3,10 +3,6 @@ export const awsClientSecret = assertValue(
   'Missing environment variable: AWS_USER_POOL_CLIENT_SECRET'
 )
 
-export const awsIdentityPoolId = assertValue(
-  process.env.AWS_IDENTITY_POOL_ID,
-  'Missing environment variable: AWS_IDENTITY_POOL_ID'
-)
 
 export const azureClientSecret = assertValue(
   process.env.AZURE_CLIENT_SECRET,
