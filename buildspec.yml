@@ -25,12 +25,19 @@ phases:
       - npm ci --omit=dev
       - echo "📁 Files in root before zipping:"
       - ls -al
-      - zip -r BuildArtifact.zip .next public package.json next.config.ts Procfile .platform node_modules
-      - echo "📦 ZIP Contents:"
-      - unzip -l BuildArtifact.zip
+      # - zip -r BuildArtifact.zip .next public package.json next.config.ts Procfile .platform node_modules
+      # - echo "📦 ZIP Contents:"
+      # - unzip -l BuildArtifact.zip
 
 artifacts:
   files:
-    - BuildArtifact.zip
+    # - BuildArtifact.zip
+    - next
+    - public
+    - package.json
+    - next.config.ts
+    - Procfile
+    - .platform
+    - node_modules
   exclude-paths:
     - .gitignore
