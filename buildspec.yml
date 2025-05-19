@@ -6,7 +6,6 @@ phases:
       nodejs: 20
     commands:
       - npm ci --force
-      - npm audit fix --force
       - echo "Fetching secrets..."
       - export NEXT_PUBLIC_SANITY_PROJECT_ID=$(aws secretsmanager get-secret-value --secret-id env-vars --query 'SecretString' --output text | jq -r '.NEXT_PUBLIC_SANITY_PROJECT_ID')
       - export NEXT_PUBLIC_SANITY_DATASET=$(aws secretsmanager get-secret-value --secret-id env-vars --query 'SecretString' --output text | jq -r '.NEXT_PUBLIC_SANITY_DATASET')
