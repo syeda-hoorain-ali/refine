@@ -6,6 +6,19 @@ phases:
       nodejs: 20
     commands:
       - npm ci
+      - echo "Fetching secrets..."
+      - export NEXT_PUBLIC_SANITY_PROJECT_ID=$(aws secretsmanager get-secret-value --secret-id env-vars --query 'SecretString' --output text | jq -r '.NEXT_PUBLIC_SANITY_PROJECT_ID')
+      - export NEXT_PUBLIC_SANITY_DATASET=$(aws secretsmanager get-secret-value --secret-id env-vars --query 'SecretString' --output text | jq -r '.NEXT_PUBLIC_SANITY_DATASET')
+      - export NEXT_PUBLIC_STRIPE_KEY=$(aws secretsmanager get-secret-value --secret-id env-vars --query 'SecretString' --output text | jq -r '.NEXT_PUBLIC_STRIPE_KEY')
+      - export NEXT_PUBLIC_BASE_URL=$(aws secretsmanager get-secret-value --secret-id env-vars --query 'SecretString' --output text | jq -r '.NEXT_PUBLIC_BASE_URL')
+      - export NEXT_PUBLIC_AWS_BASE_URL=$(aws secretsmanager get-secret-value --secret-id env-vars --query 'SecretString' --output text | jq -r '.NEXT_PUBLIC_AWS_BASE_URL')
+      - export NEXT_PUBLIC_AWS_USER_POOL_CLIENT_ID=$(aws secretsmanager get-secret-value --secret-id env-vars --query 'SecretString' --output text | jq -r '.NEXT_PUBLIC_AWS_USER_POOL_CLIENT_ID')
+      - export AWS_USER_POOL_CLIENT_SECRET=$(aws secretsmanager get-secret-value --secret-id env-vars --query 'SecretString' --output text | jq -r '.AWS_USER_POOL_CLIENT_SECRET')
+      - export NEXT_PUBLIC_AZURE_CLIENT_ID=$(aws secretsmanager get-secret-value --secret-id env-vars --query 'SecretString' --output text | jq -r '.NEXT_PUBLIC_AZURE_CLIENT_ID')
+      - export AZURE_CLIENT_SECRET=$(aws secretsmanager get-secret-value --secret-id env-vars --query 'SecretString' --output text | jq -r '.AZURE_CLIENT_SECRET')
+      - export AZURE_TENANT_ID=$(aws secretsmanager get-secret-value --secret-id env-vars --query 'SecretString' --output text | jq -r '.AZURE_TENANT_ID')
+      - export CLOUDINARY_URL=$(aws secretsmanager get-secret-value --secret-id env-vars --query 'SecretString' --output text | jq -r '.CLOUDINARY_URL')   
+
   build:
     commands:
       - npm run build
