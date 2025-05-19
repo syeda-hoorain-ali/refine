@@ -24,7 +24,7 @@ phases:
       - npm run build
       - npm ci --omit=dev
       - mkdir dist
-      - cp -r .next node_modules public package.json next.config.js Procfile .platform dist/
+      - cp -r .next node_modules public package.json next.config.ts Procfile .env .platform dist/
       - cd dist && zip -r ../BuildArtifact.zip .
 
 artifacts:
