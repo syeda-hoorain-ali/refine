@@ -5,7 +5,8 @@ phases:
     runtime-versions:
       nodejs: 20
     commands:
-      - npm ci
+      - npm ci --force
+      - npm audit fix --force
       - echo "Fetching secrets..."
       - export NEXT_PUBLIC_SANITY_PROJECT_ID=$(aws secretsmanager get-secret-value --secret-id env-vars --query 'SecretString' --output text | jq -r '.NEXT_PUBLIC_SANITY_PROJECT_ID')
       - export NEXT_PUBLIC_SANITY_DATASET=$(aws secretsmanager get-secret-value --secret-id env-vars --query 'SecretString' --output text | jq -r '.NEXT_PUBLIC_SANITY_DATASET')
@@ -17,18 +18,18 @@ phases:
       - export NEXT_PUBLIC_AZURE_CLIENT_ID=$(aws secretsmanager get-secret-value --secret-id env-vars --query 'SecretString' --output text | jq -r '.NEXT_PUBLIC_AZURE_CLIENT_ID')
       - export AZURE_CLIENT_SECRET=$(aws secretsmanager get-secret-value --secret-id env-vars --query 'SecretString' --output text | jq -r '.AZURE_CLIENT_SECRET')
       - export AZURE_TENANT_ID=$(aws secretsmanager get-secret-value --secret-id env-vars --query 'SecretString' --output text | jq -r '.AZURE_TENANT_ID')
-      - export CLOUDINARY_URL=$(aws secretsmanager get-secret-value --secret-id env-vars --query 'SecretString' --output text | jq -r '.CLOUDINARY_URL')   
+      - export CLOUDINARY_URL=$(aws secretsmanager get-secret-value --secret-id env-vars --query 'SecretString' --output text | jq -r '.CLOUDINARY_URL')
 
   build:
     commands:
       - npm run build
-      - zip -r BuildArtifact.zip * .[^.]*
+      - npm ci --omit=dev
+      - mkdir dist
+      - cp -r .next node_modules public package.json next.config.js Procfile .platform dist/
+      - cd dist && zip -r ../BuildArtifact.zip .
 
 artifacts:
   files:
     - BuildArtifact.zip
-    - '**/*'
-    - '.*'
-  discard-paths: no
   exclude-paths:
     - .gitignore
