@@ -8,6 +8,9 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "engines": {
+    "node": "20.x"
+  },
   "dependencies": {
     "@aws-amplify/core": "^6.11.4",
     "@aws-amplify/ui-react": "^6.11.1",
