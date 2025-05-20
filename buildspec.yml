@@ -22,23 +22,26 @@ phases:
   build:
     commands:
       - npm run build
-      - npm ci --omit=dev --force
-      - echo "📁 Files in root before zipping:"
-      - ls -al
+     
       # - zip -r BuildArtifact.zip .next public package.json next.config.ts Procfile .platform node_modules
       # - echo "📦 ZIP Contents:"
       # - unzip -l BuildArtifact.zip
 
-  # post_build:
-  #   commands:
-  #     - zip -r BuildArtifact.zip * .next public next.config.ts node_modules package.json Procfile
+  post_build:    
+    commands:
+      - mkdir -p bundle
+      - cp -r .next public package.json next.config.js Procfile bundle/
+      - npm ci --omit=dev --force
+      - echo "📁 Files in root before zipping:"
+      - ls -al
+      - cd bundle && zip -r ../BuildArtifact.zip *
 
 
 artifacts:
   files:
-    # - BuildArtifact.zip
-    - '**/*'
-    - '!.gitignore'
+    - BuildArtifact.zip
+    # - '**/*'
+    # - '!.gitignore'
     # - '!node_modules/**'
   # exclude-paths:
   #   - .gitignore
