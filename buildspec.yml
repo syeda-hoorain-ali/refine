@@ -29,7 +29,7 @@ phases:
 
   post_build:    
     commands:
-      - mkdir -p bundle
+      - mkdir bundle
       - cp -r .next public package.json next.config.js Procfile bundle/
       - npm ci --omit=dev --force
       - echo "📁 Files in root before zipping:"
