@@ -27,9 +27,9 @@ phases:
       # - echo "📦 ZIP Contents:"
       # - unzip -l BuildArtifact.zip
 
-  post_build:    
-    commands:
-      - zip -r BuildArtifact.zip .next public node_modules package.json next.config.js Procfile
+  # post_build:    
+  #   commands:
+      # - zip -r BuildArtifact.zip .next public node_modules package.json next.config.ts Procfile
       # - mkdir bundle
       # - cp -r .next public package.json next.config.ts Procfile bundle/
       # - npm ci --omit=dev --force
@@ -40,9 +40,9 @@ phases:
 
 artifacts:
   files:
-    - BuildArtifact.zip
-    # - '**/*'
-    # - '!.gitignore'
+    # - BuildArtifact.zip
+    - '**/*'
+    - '!.gitignore'
     # - '!node_modules/**'
   # exclude-paths:
   #   - .gitignore
