@@ -29,15 +29,16 @@ phases:
       # - echo "📦 ZIP Contents:"
       # - unzip -l BuildArtifact.zip
 
-  post_build:
-    commands:
-      - zip -r BuildArtifact.zip * .next public next.config.ts node_modules package.json Procfile
+  # post_build:
+  #   commands:
+  #     - zip -r BuildArtifact.zip * .next public next.config.ts node_modules package.json Procfile
 
 
 artifacts:
   files:
-    - BuildArtifact.zip
-    # - '**/*'
+    # - BuildArtifact.zip
+    - '**/*'
+    - '!.gitignore'
     # - '!node_modules/**'
   # exclude-paths:
   #   - .gitignore
